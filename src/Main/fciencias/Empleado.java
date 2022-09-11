@@ -183,6 +183,32 @@ public class Empleado {
     public void setFechaNacimientoEmpleado(String fecha){
         this.fechNacimiento = fecha;
     }
+
+    public String toString(){
+        String cadena = String.format(
+                        "IdEmpleado     : %s\n"+
+                        "Nombre         : %s\n"+
+                        "Dirección      : %s\n"+
+                        "Correo         : %s\n"+
+                        "Rol            : %s\n"+
+                        "Telefono       : %d\n"+
+                        "Sueldo         : %d\n"+
+                        "FechaDeNacimeinto: %s\n",
+                        idEpleado, nombre, dirección, correo, rol, telefono, sueldo, fechNacimiento);
+        return cadena;
+    }
+
+    public String cadenaEmpleado(){
+        String cadena = String.format(idEpleado+ ","+
+                        nombre+","+
+                        dirección+","+
+                        correo+","+
+                        rol+","+
+                        telefono+","+
+                        sueldo+","+
+                        fechNacimiento+"\n");
+        return cadena;
+    }
     
 
 }
