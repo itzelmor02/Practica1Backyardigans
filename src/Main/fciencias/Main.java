@@ -1,11 +1,11 @@
-package src.Main.fciencias;
+package Main.fciencias;
 import java.sql.Date;
 import java.time.LocalDate;
 import java.util.LinkedList;
 import java.util.Scanner;
-import src.Main.fciencias.Empleado;
-import src.Main.fciencias.CrearCSVEmpleado;
-import src.Main.fciencias.MetodosArchivoEmpleado;
+import Main.fciencias.Empleado;
+import Main.fciencias.CrearCSVEmpleado;
+import Main.fciencias.MetodosArchivoEmpleado;
 
 public class Main {
 

@@ -1,3 +1,4 @@
+
 /**
  * Clase para repreentar plantas. una planta tiene id, nombre, género, precio,
  * cuidado, tipo, sustrato, fecha de germinación.
@@ -93,6 +94,34 @@ public class Planta {
         return this.riego;
     }
     public void setRiego(String riego){
-        this.riego = riego
+        this.riego = riego;
     }
+
+    public String toString(){
+        String cadena = String.format(
+                        "Nombre                 : %s\n"+
+                        "Género                 : %s\n"+
+                        "Precio                 : %s\n"+
+                        "Cuidado                : %s\n"+
+                        "Tipo                   : %s\n"+
+                        "Sustrato               : %s\n"+
+                        "fecha de germinacoión  : %s\n"+
+                        "Riego %s\n",
+                        nombre, genero, precio, cuidado, tipo, sustrato, fechaGerminacion, riego);
+        return cadena;
+    }
+
+    public String cadenaEmpleado(){
+        String cadena = String.format(
+                        nombre+","+
+                        genero+","+
+                        precio+","+
+                        cuidado+","+
+                        tipo+","+
+                        sustrato+","+
+                        fechaGerminacion+
+                        riego+"\n");
+        return cadena;
+    }
+    
 }

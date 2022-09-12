@@ -1,4 +1,5 @@
-package src.Main.fciencias;
+package Main.fciencias;
+
 /**
  * Clase para repreentar plantas. una planta tiene id, nombre, género, precio,
  * cuidado, tipo, sustrato, fecha de germinación.
@@ -8,21 +9,23 @@ public class Planta {
     String idPlanta;
     String nombre;
     String genero;
-    int precio;
+    String precio;
     String cuidado;
     String tipo;//luz o sombra
     String sustrato;
     String fechaGerminacion;
+    String riego;
 
 
     public Planta(  String idPlanta,
                     String nombre,
                     String genero,
-                    int precio,
+                    String precio,
                     String cuidado,
                     String tipo,
                     String sustrato,
-                    String fechaGerminacion){
+                    String fechaGerminacion,
+                    String riego){
 
         this.idPlanta = idPlanta;
         this.nombre = nombre;
@@ -32,60 +35,94 @@ public class Planta {
         this.tipo = tipo;
         this.sustrato = sustrato;
         this.fechaGerminacion = fechaGerminacion;
+        this.riego = riego;
 
     }
 
     public String getIdPlanta(){
-        return idPlanta;
+        return this.idPlanta;
     }
     public void setIdPlanta(String ID){
         this.idPlanta = ID;
     }
 
     public String getNombrePlanta(){
-        return nombre;
+        return this.nombre;
     }
     public void setNombrePlanta(String Nombre){
         this.nombre = Nombre;
     }
 
     public String getGeneroPlanta(){
-        return genero;
+        return this.genero;
     }
     public void setGeneroPlanta(String Genero){
         this.genero = Genero;
     }
 
-    public int getPrecioPlnata(){
-        return precio;
+    public String getPrecioPlnata(){
+        return this.precio;
     }
-    public void setPrecioPlanta(int Precio){
+    public void setPrecioPlanta(String Precio){
         this.precio = Precio;
     }
 
     public String getCuidadoPlanta(){
-        return cuidado;
+        return this.cuidado;
     }
     public void setCuidadoPlanta(String Cuidado){
         this.cuidado = Cuidado;
     }
     public String getTipoPlanta(){
-        return tipo;
+        return this.tipo;
     }
     public void setTipoPlanta(String Tipo){
         this.tipo = Tipo;
     }
     public String getSustratoPlanta(){
-        return sustrato;
+        return this.sustrato;
     }
     public void setSustratoPlanta(String Sustrato){
         this.sustrato = Sustrato;
     }
     public String getFechaGerminacionPlanta(){
-        return fechaGerminacion;
+        return this.fechaGerminacion;
     }
     public void setFechaGerminacionPlanta(String Fecha){
         this.fechaGerminacion = Fecha;
     }
+    public String getRiego(){
+        return this.riego;
+    }
+    public void setRiego(String riego){
+        this.riego = riego;
+    }
 
+    public String toString(){
+        String cadena = String.format(
+                        "Nombre                 : %s\n"+
+                        "Género                 : %s\n"+
+                        "Precio                 : %s\n"+
+                        "Cuidado                : %s\n"+
+                        "Tipo                   : %s\n"+
+                        "Sustrato               : %s\n"+
+                        "fecha de germinacoión  : %s\n"+
+                        "Riego                  :%s\n",
+                        nombre, genero, precio, cuidado, tipo, sustrato, fechaGerminacion, riego);
+        return cadena;
+    }
+
+    public String cadenaPlanta(){
+        String cadena = String.format(
+                        nombre+","+
+                        genero+","+
+                        precio+","+
+                        cuidado+","+
+                        tipo+","+
+                        sustrato+","+
+                        fechaGerminacion+
+                        riego+"\n");
+        return cadena;
+    }
 }
+    

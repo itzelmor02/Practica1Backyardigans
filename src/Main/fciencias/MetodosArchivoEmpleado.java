@@ -1,4 +1,4 @@
-package src.Main.fciencias;
+package Main.fciencias;
 
 import java.time.LocalDate;
 import java.util.LinkedList;
@@ -19,7 +19,7 @@ public class MetodosArchivoEmpleado {
                 existe = true;
             }
         }
-        if(Id!=""){
+        if(Id != null||Id!="\n"){
             if(existe==false){
                 return Id;
             }else{
@@ -28,7 +28,7 @@ public class MetodosArchivoEmpleado {
             }
             
         }else{
-            System.out.println("No de puede dejar el Id vacío.");
+            System.out.println("No se puede dejar el Id vacío.");
             Id = validaIdEmpleado();
         }
         return Id;
