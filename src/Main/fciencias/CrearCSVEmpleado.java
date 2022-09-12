@@ -58,8 +58,8 @@ public class CrearCSVEmpleado {
                                         arrSplit[2],
                                         arrSplit[3],
                                         arrSplit[4],
-                                        Integer.parseInt(arrSplit[5]),
-                                        Integer.parseInt(arrSplit[6]),
+                                        arrSplit[5],
+                                        arrSplit[6],
                                         arrSplit[7]);
                     auxiliar.add(e);
                     

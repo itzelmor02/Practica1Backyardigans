@@ -1,4 +1,6 @@
 package src.Main.fciencias;
+import java.sql.Date;
+import java.time.LocalDate;
 import java.util.LinkedList;
 import java.util.Scanner;
 import src.Main.fciencias.Empleado;
@@ -35,6 +37,14 @@ public class Main {
     MetodosArchivoEmpleado metodo = new MetodosArchivoEmpleado();
     String file = "src/Main/fciencias/empleados.csv";
     limpiaTerminal();
+    
+    /**para el numero telefonico */
+    //String telefono = "5535541645";
+    
+    
+    
+
+    
     while(true){
       System.out.println("Digita la opcion que deseas realizar\n"+
                         "[1] Agregar un Nuevo Empleado.\n"+

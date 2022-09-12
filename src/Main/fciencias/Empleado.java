@@ -1,3 +1,6 @@
+package src.Main.fciencias;
+
+
 /**
  * Clase para representar a los Empleados, un empleado tiene, id, nombre, dirección, correo, rol,
  *  telefono,sueldo y fecha de nacimiento.
@@ -15,9 +18,9 @@ public class Empleado {
     /*Rol del empleado. */
     private String rol;
     /*Telefono del empleado. */
-    private int telefono;
+    private String telefono;
     /*Sueldo del empleado. */
-    private int sueldo;
+    private String sueldo;
     /*Fecha de nacimiento del empleado. */
     private String fechNacimiento;
 
@@ -38,8 +41,8 @@ public class Empleado {
                     String direccion,
                     String correo,
                     String rol,
-                    int telefono,
-                    int sueldo,
+                    String telefono,
+                    String sueldo,
                     String fechNacimiento ){
                         
         this.idEpleado = idEmpleado; 
@@ -137,7 +140,7 @@ public class Empleado {
      * Regresa el telefono del empleado.
      * @return
      */
-    public int getTelefonoEmpleado(){
+    public String getTelefonoEmpleado(){
         return telefono;
     }
 
@@ -145,7 +148,7 @@ public class Empleado {
      * Define el telefono del empleado.
      * @param Telefono el nuevo telefono del empleado.
      */
-    public void setTelefonoEmpleado(int Telefono){
+    public void setTelefonoEmpleado(String Telefono){
         this.telefono = Telefono;
     }
 
@@ -153,7 +156,7 @@ public class Empleado {
      * Regresa el sueldo del empleado.
      * @return el sueldo del empleado.
      */
-    public int getSueldoEmpleado(){
+    public String getSueldoEmpleado(){
         return sueldo;
     }
 
@@ -161,7 +164,7 @@ public class Empleado {
      * Define el sueldo del empleado.
      * @param Sueldo el nuevo sueldo del empleado.
      */
-    public void setSueldoEmpleado(int Sueldo){
+    public void setSueldoEmpleado(String Sueldo){
         this.sueldo = Sueldo;
     }
 
@@ -188,8 +191,8 @@ public class Empleado {
                         "Dirección      : %s\n"+
                         "Correo         : %s\n"+
                         "Rol            : %s\n"+
-                        "Telefono       : %d\n"+
-                        "Sueldo         : %d\n"+
+                        "Telefono       : %s\n"+
+                        "Sueldo         : %s\n"+
                         "FechaDeNacimeinto: %s\n",
                         idEpleado, nombre, dirección, correo, rol, telefono, sueldo, fechNacimiento);
         return cadena;
