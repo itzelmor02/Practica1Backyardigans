@@ -99,8 +99,9 @@ public class Main {
                     }
                   //  System.out.println("Digite el campo que desea modificar(Nombre,Direccion,Correo,Rol,Telefono,Sueldo,Fecha)");
                     //Modificax = sc.nextLine();
-                    System.out.println("Digite el nuevo valor del campo "+ Modificax);
-                    String valor2 = sc.nextLine();
+                    //System.out.println("Digite el nuevo valor del campo "+ Modificax);
+                    //String valor2 = sc.next();
+                    String valor2 = "";
                     metodo.modificaEmpleadoPorId(ID, Modificax, valor2, file);
               break;
             case "5":
