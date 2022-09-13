@@ -1,4 +1,4 @@
-package Main.fciencias;
+package src;
 
 import java.time.LocalDate;
 import java.util.LinkedList;
@@ -10,7 +10,7 @@ public class MetodosArchivoEmpleado {
 
     public String validaIdEmpleado(){
         CrearCSVEmpleado csvempleado = new CrearCSVEmpleado();
-        LinkedList<Empleado>  empleados = csvempleado.listaEmpleado("src/Main/fciencias/empleados.csv");
+        LinkedList<Empleado>  empleados = csvempleado.listaEmpleado("src/src/empleados.csv");
         System.out.println("Digite su Id:");
         String Id = sc.nextLine();
         boolean existe = false;
@@ -19,7 +19,7 @@ public class MetodosArchivoEmpleado {
                 existe = true;
             }
         }
-        if(Id != null||Id!="\n"){
+        if(Id!=""){
             if(existe==false){
                 return Id;
             }else{
@@ -28,7 +28,7 @@ public class MetodosArchivoEmpleado {
             }
             
         }else{
-            System.out.println("No se puede dejar el Id vacío.");
+            System.out.println("No de puede dejar el Id vacío.");
             Id = validaIdEmpleado();
         }
         return Id;
@@ -202,22 +202,6 @@ public class MetodosArchivoEmpleado {
         CrearCSVEmpleado csvempleado = new CrearCSVEmpleado();
         String nombreDeArchivo = "src/Main/fciencias/empleados.csv";
 
-    /*    System.out.println("Digite su id");
-        String id = sc.nextLine();
-        System.out.println("Digite su nombre: ");
-        String nombre = sc.nextLine();
-        System.out.println("Digite su dirección: ");
-        String direccion = sc.nextLine();
-        System.out.println("Digite su correo electrónico: ");
-        String correo = sc.nextLine();
-        System.out.println("Digite su rol: ");
-        String rol = sc.nextLine();
-        System.out.println("Digite su Telefono: ");
-        String telefono = sc.nextLine();
-        System.out.println("Digite su sueldo: ");
-        String sueldo = sc.nextLine();
-        System.out.println("Digite su fecha de nacimiento en dd/mm/aaaa: ");
-        String nacimiento = sc.next();*/
         String id = validaIdEmpleado();
         String nombre = validaNombreEmpleado();
         String direccion = validaDireccionEmpleado();
@@ -242,11 +226,17 @@ public class MetodosArchivoEmpleado {
         CrearCSVEmpleado csvempleado = new CrearCSVEmpleado();
         LinkedList<Empleado>  empleados = csvempleado.listaEmpleado(file);
         /*recorrera la lista de los empleados hasta hacer match con el que coincida el Id */
+        int contador = 0;
         for(int i=0; i<empleados.size(); i++){  
             String id = empleados.get(i).getIdEmpleado();
             if(ID.equals(id)){
-                empleados.remove(i);                
+                empleados.remove(i);
+                break;
             }
+            contador++;
+        }
+        if(contador==empleados.size()){
+            System.out.println("No se encontró al empleado con el Id "+ID);
         }
         
         csvempleado.cargaArchvo(empleados, file);
@@ -265,33 +255,46 @@ public class MetodosArchivoEmpleado {
         LinkedList<Empleado>  empleados = csvempleado.listaEmpleado(file);
 
         int empleado = 0;
+        int contador = 0;
         for(int i=0; i<empleados.size(); i++){
             String id = empleados.get(i).getIdEmpleado();
             if(ID.equals(id)){
                 empleado = i;
                 break;
             }
+            contador++;
+        }
+        if(contador==empleados.size()){
+            System.out.println("No se encontró el Id "+ ID);
+            return;
         }
         switch(Modificax){
             case "Nombre":
+                valor = validaNombreEmpleado();
                 empleados.get(empleado).setNombreEmpleado(valor);
                 break;
             case "Direccion":
+                valor = validaDireccionEmpleado();
                 empleados.get(empleado).setDireccionEmpleado(valor);
                 break;
             case "Correo":
+                valor = validaCorreoEmpleado();
                 empleados.get(empleado).setCorreoEmpleado(valor);
                 break;
             case "Rol":
+                valor = validaRolEmpleado();
                 empleados.get(empleado).setRolEmpleado(valor);
                 break;
             case "Telefono":
-            empleados.get(empleado).setTelefonoEmpleado(valor);
+                valor = validaTelefonoEmpleado();
+                empleados.get(empleado).setTelefonoEmpleado(valor);
                 break;
             case "Sueldo":
+                valor = validaSueldoEmpleado();
                 empleados.get(empleado).setSueldoEmpleado(valor);
                 break;
             case "Fecha":
+                valor = validaFechaEmpleado();
                 empleados.get(empleado).setFechaNacimientoEmpleado(valor);
                 break;
             default:
@@ -312,61 +315,89 @@ public class MetodosArchivoEmpleado {
 
         switch(buscaEn){
             case "Id":
-                break;
-            case "Nombre":
-
+                boolean val0 = false;
                 for(int i=0; i<empleados.size(); i++){
-                    if(valor.equals(empleados.get(i).getNombreEmpleado())){
+                    if(empleados.get(i).getIdEmpleado().contains(valor)){
                         System.out.println(empleados.get(i));
+                        val0 = true;
                     }
                 }
+                if(val0==true){break;}else{System.out.println("No se encontró el Id: "+valor);}
+                break;
+            case "Nombre":
+                boolean val = false;
+                for(int i=0; i<empleados.size(); i++){
+                    if(empleados.get(i).getNombreEmpleado().contains(valor)){
+                        System.out.println(empleados.get(i));
+                        val = true;
+                    }
+                }
+                if(val==true){break;}else{System.out.println("No se encontró el nombre: "+valor);}
                 break;
             case "Direccion":
+                boolean val1 = false;
                 for(int i=0; i<empleados.size(); i++){
                     if(valor.equals(empleados.get(i).getDireccionEmpleado())){
                         System.out.println(empleados.get(i));
+                        val1 = true;
                     }
-                }    
+                }
+                if(val1){break;}else{System.out.println("No se encontró la dirección: "+valor);}
             
                 break;
             case "Correo":
+                boolean val2 = false;
                 for(int i=0; i<empleados.size(); i++){
                     if(valor.equals(empleados.get(i).getCorreoEMpleado())){
                         System.out.println(empleados.get(i));
+                        val2 = true;
                     }
                 }
+                if(val2){break;}else{System.out.println("No se encontró el correo: "+valor);}
                 break;
             case "Rol":
+                boolean val3 = false;
                 for(int i=0; i<empleados.size(); i++){
                     if(valor.equals(empleados.get(i).getRolEmpleado())){
                         System.out.println(empleados.get(i));
+                        val3 = true;
                     }
                 }
+                if(val3){break;}else{System.out.println("No se encontró el rol: "+valor);}
                 break;
             case "Telefono":
+                boolean val4 = false;
                 for(int i=0; i<empleados.size(); i++){
                     if(valor.equals(empleados.get(i).getTelefonoEmpleado())){
                         System.out.println(empleados.get(i));
+                        val4 =true;
                         break;
                     }
                 }
+                if(val4){break;}else{System.out.println("No se encontró el teléfono: "+valor);}
                 break;
             case "Sueldo":
+                boolean val5 = false;
                 for(int i=0; i<empleados.size(); i++){
                     if(valor.equals(empleados.get(i).getSueldoEmpleado())){
                         System.out.println(empleados.get(i));
+                        val5 = true;
                     }
                 }
+                if(val5){break;}else{System.out.println("No se encontró el sueldo de: "+valor);}
                 break;
             case "Fecha":
+                boolean val6 = false;
                 for(int i=0; i<empleados.size(); i++){
                     if(valor.equals(empleados.get(i).getFechaNacimientoEmpleado())){
                         System.out.println(empleados.get(i));
+                        val6 = true;
                     }
                 }
+                if(val6){break;}else{System.out.println("No se encontró el nombre: "+valor);}
                 break;
             default:
-            System.out.println("No se pudo modificar el empleado, verifica el Id");
+            System.out.println("No se pudo encontrar al empleado, verifica el valor de tu busqueda");
             return;
         }        
     }

@@ -1,4 +1,4 @@
-package Main.fciencias;
+package src;
 
 /**
  * Clase para repreentar plantas. una planta tiene id, nombre, género, precio,

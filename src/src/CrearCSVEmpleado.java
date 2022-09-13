@@ -1,5 +1,4 @@
-package Main.fciencias;
-
+package src;
 import java.io.BufferedReader;
 import java.io.File;
 import java.io.FileReader;
@@ -7,21 +6,21 @@ import java.io.FileWriter;
 import java.io.IOException;
 import java.util.LinkedList;
 
-public class CrearCSVPlanta {
+public class CrearCSVEmpleado {
     
     
     public boolean isFileExists(File file) {
         return file.exists() && !file.isDirectory();
     }
 
-	public void crearArchivoCSVPlanta(String file,String planta) {
+	public void crearArchivoCSVEmpleado(String file,String empleado) {
 		final String NEXT_LINE = "\n";
         File nuevofile = new File(file);
         if(isFileExists(nuevofile)){
             try {
 				
                 FileWriter fw = new FileWriter(file,true);
-                fw.append(planta);
+                fw.append(empleado);
                 fw.close();
             } catch (Exception e) {
                 e.printStackTrace();
@@ -30,7 +29,7 @@ public class CrearCSVPlanta {
 		try {
             FileWriter fw = new FileWriter(file);
 
-			fw.append(planta);
+			fw.append(empleado);
 
 			fw.flush();
 			fw.close();
@@ -40,8 +39,8 @@ public class CrearCSVPlanta {
 	}
 	}
     
-    public LinkedList<Planta> listaPlanta(String file){
-        LinkedList<Planta> auxiliar = new LinkedList<>();
+    public LinkedList<Empleado> listaEmpleado(String file){
+        LinkedList<Empleado> auxiliar = new LinkedList<>();
         try {
             FileReader read = new FileReader(file);
             BufferedReader bufer = new BufferedReader(read);
@@ -52,16 +51,15 @@ public class CrearCSVPlanta {
                 String x = temp;
                 if(temp!=null){
                     String[] arrSplit = x.split(",");
-                    /*crea a los objetos Plantas */
-                    Planta e = new Planta(arrSplit[0],
+                    /*crea a los objetos Empleados */
+                    Empleado e = new Empleado(arrSplit[0],
                                         arrSplit[1],
                                         arrSplit[2],
                                         arrSplit[3],
                                         arrSplit[4],
                                         arrSplit[5],
                                         arrSplit[6],
-                                        arrSplit[7],
-                                        arrSplit[8]);
+                                        arrSplit[7]);
                     auxiliar.add(e);
                     
                 }
@@ -73,14 +71,14 @@ public class CrearCSVPlanta {
         return auxiliar;
     }
 
-    public void cargaArchvo(LinkedList<Planta> plantas, String file){
+    public void cargaArchvo(LinkedList<Empleado> empleados, String file){
         File nuevofile = new File(file);
         if(isFileExists(nuevofile)){
             try {
 				
                 FileWriter fw = new FileWriter(file);
-                for(int i=0;i<plantas.size();i++){
-                    fw.append(plantas.get(i).cadenaPlanta());
+                for(int i=0;i<empleados.size();i++){
+                    fw.append(empleados.get(i).cadenaEmpleado());
                 }
                 
                 fw.close();
